@@ -4,6 +4,12 @@ module "resource_group" {
   location = "centralIndia"
 }
 
+module "resource_group2" {
+  source = "../modules/azurerm_resource_group"
+  resource_group_name = "shashi_rg2"
+  location = "centralIndia"
+}
+
 module "vnet" {
     depends_on = [ module.resource_group ] # firstly create resource group then create vnet that's why we put explicit dependecy on resource group
     source = "../modules/azurerm_vnet"
